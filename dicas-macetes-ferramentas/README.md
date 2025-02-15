@@ -4,6 +4,10 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
+- Configuração WSL para funcionar em modo NAT e encaminhando solicitações oriundas do host-> wsl, vice-versa.
+- ![image](https://github.com/user-attachments/assets/43a70c3d-75b5-40f1-b7a2-c8e20c01fbf3)
+
+
 - [Como usar o LocalStack para emular serviços AWS localmente](#Como-usar-o-LocalStack-para-emular-serviços-AWS-localmente)
 
 - [Framework Dinâmico com Spring Data JPA e Specifications](#Framework-Dinâmico-com-Spring-Data-JPA-e-Specifications)
