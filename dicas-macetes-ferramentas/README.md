@@ -7,7 +7,7 @@ dicas-macetes-ferramentas
 - Configuração WSL para funcionar em modo NAT e encaminhando solicitações oriundas do host-> wsl, vice-versa.
   ![image](https://github.com/user-attachments/assets/43a70c3d-75b5-40f1-b7a2-c8e20c01fbf3)
 
-- [Ao usar MapStruct, executando aplicação pelo Intellij, não executa o maven-compiler-plugin pra processar anotações do spring](#map-struct-anotacoes-spring)
+- [Ao usar MapStruct, executando aplicação pelo Intellij, não executa o maven-compiler-plugin pra processar anotações do spring](#Ao-usar-mapStruct-executando-aplicação-pelo-Intellij-não-executa-o-'maven-compiler'-plugin-pra-processar-anotações-do-spring)
 
 - [Como usar o LocalStack para emular serviços AWS localmente](#Como-usar-o-LocalStack-para-emular-serviços-AWS-localmente)
 
@@ -2036,4 +2036,4 @@ public class MinhaEntidadeService {
 
    - https://camel.apache.org/docs/ 
 
-# Ao usar MapStruct, executando aplicação pelo Intellij, não executa o maven-compiler-plugin pra processar anotações do spring
+# Ao usar mapStruct executando aplicação pelo Intellij não executa o 'maven-compiler' plugin pra processar anotações do spring
