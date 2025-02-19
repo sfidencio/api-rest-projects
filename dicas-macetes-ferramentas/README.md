@@ -2038,4 +2038,73 @@ public class MinhaEntidadeService {
 
 # Configurações MapStruct e Intellij
 
-## 1. 
+## Configuração do Maven para MapStruct com Spring
+
+## Problema
+Ao executar a aplicação pelo IntelliJ IDEA, as classes de implementação do MapStruct não estão sendo geradas com a anotação `@Component` do Spring, mesmo com a configuração do `compilerArgs` no `maven-compiler-plugin`.
+
+## Solução
+Para garantir que o IntelliJ IDEA execute o `maven-compiler-plugin` com os argumentos especificados ao compilar e executar a aplicação, siga os passos abaixo:
+
+### 1. Configurar o IntelliJ para usar o Maven como sistema de build
+1. Vá para `File` > `Settings` (ou `Ctrl+Alt+S`).
+2. Navegue até `Build, Execution, Deployment` > `Build Tools` > `Maven`.
+3. Certifique-se de que a opção `Runner` está configurada para usar o `Maven` e não o `IntelliJ IDEA`.
+
+### 2. Executar a aplicação usando uma configuração de execução do Maven
+1. Vá para `Run` > `Edit Configurations`.
+2. Clique no botão `+` para adicionar uma nova configuração.
+3. Selecione `Maven`.
+4. Configure a nova configuração de execução do Maven:
+   - **Name**: Dê um nome para a configuração, como `Run Product Service`.
+   - **Working directory**: Defina o diretório de trabalho para o diretório do projeto.
+   - **Command line**: Insira `clean install` para garantir que o Maven compile e instale o projeto.
+5. Clique em `Apply` e depois em `OK`.
+
+### 3. Executar a aplicação usando a configuração de execução do Maven
+1. Selecione a configuração de execução do Maven que você acabou de criar no menu de configurações de execução.
+2. Clique no botão `Run` para executar a aplicação.
+
+### 4. Verificar a configuração do `pom.xml`
+Certifique-se de que o `pom.xml` está corretamente configurado e que todas as dependências e versões estão definidas corretamente.
+
+#### Exemplo de `pom.xml`
+```xml
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>${mapstruct.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.springframework.boot</groupId>
+                            <artifactId>spring-boot-configuration-processor</artifactId>
+                            <version>${spring-boot.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok-mapstruct-binding</artifactId>
+                            <version>0.2.0</version>
+                        </path>
+                    </annotationProcessorPaths>
+                    <compilerArgs>
+                        <compilerArg>
+                            -Amapstruct.defaultComponentModel=spring
+                        </compilerArg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+         ```
