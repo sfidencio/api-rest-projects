@@ -13,7 +13,9 @@ dicas-macetes-ferramentas
 
 - [Framework Dinâmico com Spring Data JPA e Specifications](#Framework-Dinâmico-com-Spring-Data-JPA-e-Specifications)
 
-- [Documentação Apache Camel](#Documentação-Apache-Camel)
+- [Documentação Apache Camel](#Documentação-Apache-Camel
+
+- [Script de Validação de Commits](#Script-de-Validação-de-Commits)
 	
 - Dicas sobre RabbitMQ
    - https://www.linkedin.com/pulse/exchanges-do-rabbitmq-otthon-le%C3%A3o-bkmbf/
@@ -748,6 +750,50 @@ Fazer uma refatoração no código:
 git add .
 git commit -m "refactor: Extrai lógica de autenticação para um novo serviço"
 ```
+
+Aqui está seu script em formato Markdown:
+
+# Script de Validação de Commits
+
+## Tipos de Commits Aceitos
+
+| Tipo | Descrição | Exemplo |
+|------|-----------|---------|
+| `feat` | Para novas funcionalidades | `feat(auth): implementar autenticação JWT` |
+| `fix` | Para correção de bugs | `fix(login): corrigir validação de senha` |
+| `docs` | Para alterações em documentação | `docs(api): atualizar documentação Swagger` |
+| `style` | Para mudanças que não afetam o código | `style(user): ajustar indentação` |
+| `refactor` | Para refatorações de código | `refactor(service): simplificar lógica` |
+| `perf` | Para melhorias de performance | `perf(query): otimizar consulta` |
+| `test` | Para adição/modificação de testes | `test(integration): adicionar testes` |
+| `chore` | Para tarefas de manutenção | `chore(deps): atualizar dependências` |
+| `ci` | Para alterações CI/CD | `ci(workflow): adicionar etapa de testes` |
+
+## Script de Validação
+
+```bash
+#!/bin/bash
+
+# Validação do formato: tipo(escopo): mensagem
+git log -1 --pretty=%B | grep -qE '^(feat|fix|docs|style|refactor|perf|test|chore|ci)\([a-z0-9_-]+\): .+'
+if [ $? -ne 0 ]; then
+    echo "Formato de mensagem de commit inválido."
+    echo "Use o formato: tipo(escopo): mensagem"
+    echo "Exemplos:"
+    echo "  feat(user): add login feature"
+    echo "  fix(api): fix status code"
+    echo "  docs(readme): update docs"
+    exit 1
+fi
+```
+
+## Formato Obrigatório
+`tipo(escopo): mensagem`
+
+Onde:
+- `tipo`: um dos tipos listados na tabela acima
+- `escopo`: contexto da alteração (letras minúsculas, números, hífen ou underscore)
+- `mensagem`: descrição clara e concisa da alteração
 
 # Implementando flyway
  -  [Implementando flyway](https://medium.com/hprog99/set-up-flyway-with-spring-boot-1b24b8abe56e)
