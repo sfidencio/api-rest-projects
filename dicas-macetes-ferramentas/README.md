@@ -4,6 +4,10 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
+- Configuração repositório público, permitir github-actions tenha acesso a escrita para gerar tags e etc.
+- ![image](https://github.com/user-attachments/assets/fa4edca7-51c4-4b6a-b34c-d8f7cee445d1)
+
+
 - Configuração WSL para funcionar em modo NAT e encaminhando solicitações oriundas do host-> wsl, vice-versa.
   ![image](https://github.com/user-attachments/assets/43a70c3d-75b5-40f1-b7a2-c8e20c01fbf3)
 
