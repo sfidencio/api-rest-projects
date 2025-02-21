@@ -795,6 +795,52 @@ Onde:
 - `escopo`: contexto da alteração (letras minúsculas, números, hífen ou underscore)
 - `mensagem`: descrição clara e concisa da alteração
 
+Vou explicar cada linha do script selecionado em formato Markdown:
+
+## Análise Detalhada do Script
+
+### Verificação de Erro
+```yaml
+if [ $? -ne 0 ]; then
+```
+- `$?`: Captura o código de retorno do último comando executado
+- `-ne 0`: Compara se o código é diferente de zero (indica erro)
+- Caso o comando anterior falhe, o bloco dentro do `if` será executado
+
+### Mensagem Principal de Erro
+```yaml
+echo "Invalid commit message format. Please use the conventional commit format."
+```
+- Exibe mensagem informando que o formato está inválido
+- Indica ao usuário que deve usar o formato convencional de commits
+
+### Exemplos de Uso
+```yaml
+echo "Examples:"
+echo "  feat(user): add login feature"
+echo "  fix(api): fix status code"
+echo "  docs(readme): update docs"
+```
+- Mostra exemplos práticos de commits válidos
+- Cada linha demonstra um formato correto diferente
+- Facilita o entendimento do usuário sobre como escrever corretamente
+
+### Finalização com Erro
+```yaml
+exit 1
+```
+- `exit`: Encerra a execução do script
+- `1`: Código de retorno indicando erro
+- Impede que o commit seja finalizado quando o formato está incorreto
+
+### Fechamento do Bloco
+```yaml
+fi
+```
+- Marca o fim do bloco condicional `if`
+- Encerra a estrutura de validação
+
+
 # Implementando flyway
  -  [Implementando flyway](https://medium.com/hprog99/set-up-flyway-with-spring-boot-1b24b8abe56e)
  -  https://medium.com/hprog99/set-up-flyway-with-spring-boot-1b24b8abe56e
