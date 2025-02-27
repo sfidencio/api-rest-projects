@@ -4,6 +4,9 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
+- Engenharia de Prompt
+	- https://www.promptingguide.ai/pt/introduction/basics 
+
 - Configuração repositório público, permitir github-actions tenha acesso a escrita para gerar tags e etc.
 - ![image](https://github.com/user-attachments/assets/fa4edca7-51c4-4b6a-b34c-d8f7cee445d1)
 
